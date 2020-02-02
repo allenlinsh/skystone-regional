@@ -5,23 +5,22 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 public class Drive {
     /*
-     * Declare motor variables
+     * Declare drive variables
      */
+    private Robot robot = new Robot();
     private static final double WHEEL_DIAMETER = 3.75;
     private static final double TICKS_PER_REV = 480;
     private static final double IN_PER_REV = Math.PI * WHEEL_DIAMETER / TICKS_PER_REV; // ticks = inches / IN_PER_REV;
-    public DcMotor motors[] = new DcMotor[4];
+    private DcMotor motors[] = new DcMotor[4];
 
     public Drive() {
-        Robot robot = new Robot();
-
         /*
          * Initialize the motor hardware and configure the initial status
          */
-        motors[0] = robot.m0;
-        motors[1] = robot.m1;
-        motors[2] = robot.m2;
-        motors[3] = robot.m3;
+        motors[0] = robot.bl;
+        motors[1] = robot.br;
+        motors[2] = robot.fl;
+        motors[3] = robot.fr;
 
         motors[0].setDirection(DcMotorSimple.Direction.FORWARD);
         motors[1].setDirection(DcMotorSimple.Direction.REVERSE);
@@ -34,6 +33,7 @@ public class Drive {
             motors[i].setPower(0);
         }
     }
+
     public void mode(String mode) {
         switch (mode) {
             case "RESET":
@@ -58,18 +58,17 @@ public class Drive {
                 break;
         }
     }
+
     public void run(double p0, double p1, double p2, double p3) {
         motors[0].setPower(p0);
         motors[1].setPower(p1);
         motors[2].setPower(p2);
         motors[3].setPower(p3);
     }
+
     public void stopMotors() {
         for (int i = 0; i < 4; i++) {
             motors[i].setPower(0);
         }
-    }
-    public void resetEncoders() {
-        mode("RESET");
     }
 }
