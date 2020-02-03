@@ -10,10 +10,10 @@ public class Robot {
     /**
      * Declare robot variables
      * imu: imu
-     * bl: back left
-     * br: back right
-     * fl: front left
-     * fr: front right
+     * lb: left back
+     * rb: right back
+     * lf: left front
+     * rf: right front
      * il: intake left
      * ir: intake right
      * lift: lift
@@ -21,21 +21,21 @@ public class Robot {
      * arm: arm
      * grip: grip
      * tilt: tilt
-     * lt: left top
-     * lb: left bottom
-     * rt: right top
-     * rb: right bottom
+     * tl: top left
+     * bl: bottom left
+     * tr: top right
+     * br: bottom right
      * arm: arm
      * hl: hook left
      * hr: hook right
      */
     public BNO055IMU imu;
-    public DcMotor bl, br, fl, fr;
+    public DcMotor lb, rb, lf, rf;
     public DcMotor il, ir;
     public DcMotor lift;
     public DcMotor cap;
     public Servo grip, tilt;
-    public Servo lt, lb, rt, rb;
+    public Servo tl, bl, tr, br;
     public Servo arm;
     public Servo hl, hr;
 
@@ -50,22 +50,22 @@ public class Robot {
          * Get the hardware map for each hardware
          */
         this.imu = map.get(BNO055IMU.class, "imu");
-        this.bl = map.get(DcMotor.class, "back left");
-        this.br = map.get(DcMotor.class, "back right");
-        this.fl = map.get(DcMotor.class, "front left");
-        this.fr = map.get(DcMotor.class, "front right");
+        this.lb = map.get(DcMotor.class, "left back");
+        this.rb = map.get(DcMotor.class, "right back");
+        this.lf = map.get(DcMotor.class, "left front");
+        this.rf = map.get(DcMotor.class, "right front");
         this.il = map.get(DcMotor.class, "intake left");
         this.ir = map.get(DcMotor.class, "intake right");
         this.lift = map.get(DcMotor.class, "lift");
         this.cap = map.get(DcMotor.class, "capstone");
         this.grip = map.get(Servo.class, "grip");
-        this.tilt = map.get(Servo.class, "tilt");
-        this.lt = map.get(Servo.class, "left top");
-        this.lb = map.get(Servo.class, "left bottom");
-        this.rt = map.get(Servo.class, "right top");
-        this.rb = map.get(Servo.class, "right bottom");
+        //this.tilt = map.get(Servo.class, "tilt");
+        this.tl = map.get(Servo.class, "top left");
+        this.bl = map.get(Servo.class, "bottom left");
+        this.tr = map.get(Servo.class, "top right");
+        this.br = map.get(Servo.class, "bottom right");
         this.arm = map.get(Servo.class, "arm");
-        this.hl = map.get(Servo.class, "hl");
-        this.hr = map.get(Servo.class, "hr");
+        this.hl = map.get(Servo.class, "hook left");
+        this.hr = map.get(Servo.class, "hook right");
     }
 }

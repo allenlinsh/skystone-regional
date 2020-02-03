@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
 import com.kinetix.robot.Drive;
+import com.kinetix.robot.Hook;
 import com.kinetix.robot.Intake;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -30,11 +31,14 @@ public class MainTeleOp extends LinearOpMode {
     public void runOpMode() {
         Drive drive = new Drive();
         Intake intake = new Intake();
+        Hook hook = new Hook();
 
         /**
          * Initialize
          */
         drive.initialize();
+        intake.initialize();
+        hook.initialize();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         waitForStart();

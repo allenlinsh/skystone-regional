@@ -16,9 +16,9 @@ public class Lift {
      */
     public Lift() {
         this.motor = robot.lift;
-        this.servos[0] = robot.lt;
-        this.servos[1] = robot.lb;
-        this.servos[2] = robot.rt;
-        this.servos[3] = robot.rb;
+        this.servos[0] = robot.tl;
+        this.servos[1] = robot.bl;
+        this.servos[2] = robot.tr;
+        this.servos[3] = robot.br;
     }
 }

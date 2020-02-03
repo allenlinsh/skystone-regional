@@ -20,10 +20,10 @@ public class Drive {
      * Constructor for mecanum drive with imu
      */
     public Drive() {
-        this.motors[0] = robot.bl;
-        this.motors[1] = robot.br;
-        this.motors[2] = robot.fl;
-        this.motors[3] = robot.fr;
+        this.motors[0] = robot.lb;
+        this.motors[1] = robot.rb;
+        this.motors[2] = robot.lf;
+        this.motors[3] = robot.rf;
     }
 
     /**
@@ -126,15 +126,15 @@ public class Drive {
      * Initialize drive motors
      */
     public void initialize() {
-        this.motors[0].setDirection(DcMotorSimple.Direction.FORWARD);
-        this.motors[1].setDirection(DcMotorSimple.Direction.REVERSE);
-        this.motors[2].setDirection(DcMotorSimple.Direction.FORWARD);
-        this.motors[3].setDirection(DcMotorSimple.Direction.REVERSE);
+        motors[0].setDirection(DcMotorSimple.Direction.FORWARD);
+        motors[1].setDirection(DcMotorSimple.Direction.REVERSE);
+        motors[2].setDirection(DcMotorSimple.Direction.FORWARD);
+        motors[3].setDirection(DcMotorSimple.Direction.REVERSE);
 
         for (int i = 0; i < 4; i++) {
-            this.motors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            this.motors[i].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            this.motors[i].setPower(0);
+            motors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            motors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            motors[i].setPower(0);
         }
     }
 }
