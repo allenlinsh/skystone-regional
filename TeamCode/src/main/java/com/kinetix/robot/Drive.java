@@ -1,5 +1,6 @@
 package com.kinetix.robot;
 
+import com.kinetix.util.MathUtils;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
@@ -10,7 +11,7 @@ public class Drive {
     private Robot robot = new Robot();
     private Imu imu = new Imu();
     private final double MM_PER_INCH = 25.4;
-    private final double WHEEL_DIAMETER = 100/MM_PER_INCH; // specific for GoBilda Mecanum wheels
+    private final double WHEEL_DIAMETER = MathUtils.round(100/MM_PER_INCH, 2); // specific for GoBilda Mecanum wheels
     private final double TICKS_PER_REV = 723.24; // specific for GoBilda 26:1 motors
     private final double IN_PER_REV = Math.PI * WHEEL_DIAMETER / TICKS_PER_REV; // ticks = inches / IN_PER_REV;
     private final double IN_PER_BLOCK = 23.625;

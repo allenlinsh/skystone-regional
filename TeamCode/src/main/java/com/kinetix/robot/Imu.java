@@ -69,8 +69,7 @@ public class Imu {
 
         if (deltaAngle < -180) {
             deltaAngle += 360;
-        }
-        else if (deltaAngle > 180) {
+        } else if (deltaAngle > 180) {
             deltaAngle -= 360;
         }
 
