@@ -1,12 +1,12 @@
 package com.kinetix.robot;
 
-public class FoundationMover {
+public class Hook {
     /*
      * Declare foundation mover variables
      */
     private Robot robot = new Robot();
 
-    public FoundationMover() {
+    public Hook() {
 
     }
 }

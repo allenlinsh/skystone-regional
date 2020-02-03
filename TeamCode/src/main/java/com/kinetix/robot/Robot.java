@@ -7,10 +7,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class Robot {
-    private LinearOpMode opmode;
-    private HardwareMap map;
-
-    /*
+    /**
+     * Declare robot variables
      * imu: imu
      * bl: back left
      * br: back right
@@ -28,6 +26,8 @@ public class Robot {
      * rt: right top
      * rb: right bottom
      * arm: arm
+     * hl: hook left
+     * hr: hook right
      */
     public BNO055IMU imu;
     public DcMotor bl, br, fl, fr;
@@ -37,8 +37,14 @@ public class Robot {
     public Servo grip, tilt;
     public Servo lt, lb, rt, rb;
     public Servo arm;
+    public Servo hl, hr;
 
+    private LinearOpMode opmode;
+    private HardwareMap map;
 
+    /**
+     * Constructor for robot hardware
+     */
     public Robot() {
         /*
          * Get the hardware map for each hardware
@@ -59,5 +65,7 @@ public class Robot {
         this.rt = map.get(Servo.class, "right top");
         this.rb = map.get(Servo.class, "right bottom");
         this.arm = map.get(Servo.class, "arm");
+        this.hl = map.get(Servo.class, "hl");
+        this.hr = map.get(Servo.class, "hr");
     }
 }
