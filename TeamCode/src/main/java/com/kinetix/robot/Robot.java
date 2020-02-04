@@ -62,6 +62,12 @@ public class Robot extends LinearOpMode{
     private Servo hookServos[] = new Servo[2];
     private int duration = 300; // time to complete servo movement (in milliseconds)
 
+    /**
+     * Declare imu variables
+     */
+    private double globalHeading;
+    private double lastHeading;
+
     ////////////////////////////////////////   robot    ////////////////////////////////////////
 
     /*
@@ -129,6 +135,15 @@ public class Robot extends LinearOpMode{
      */
     public void initHook() {
         unlock();
+    }
+
+    /**
+     * Initializes imu parameters
+     */
+    public void initImu() {
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        imu.initialize(parameters);
     }
 
     ////////////////////////////////////   drive subsystem   ////////////////////////////////////
@@ -295,6 +310,66 @@ public class Robot extends LinearOpMode{
     }
 
     ///////////////////////////////////   capstone subsystem   ///////////////////////////////////
+
+    //////////////////////////////////////   imu subsystem   //////////////////////////////////////
+
+    /**
+     * Get the angle on the x-axis
+     * @return angle on the x-axis
+     */
+    public double getXAngle() {
+        return imu.getAngularOrientation().thirdAngle;
+    }
+
+    /**
+     * Get the angle on the y-axis
+     * @return angle on the y-axis
+     */
+    public double getYAngle() {
+        return imu.getAngularOrientation().secondAngle;
+    }
+
+    /**
+     * Get the angle on the z-axis
+     * @return angle on the z-axis
+     */
+    public double getZAngle() {
+        return imu.getAngularOrientation().firstAngle;
+    }
+
+    /**
+     * Get the last stored heading
+     * @return last heading
+     */
+    public double getLastAngle() {
+        return lastHeading;
+    }
+
+    /**
+     * Reset the global heading to the current heading
+     */
+    public void resetHeading() {
+        lastHeading = getZAngle();
+        globalHeading = 0;
+    }
+
+    /**
+     * Get the adjusted heading
+     * @return global heading
+     */
+    public double getHeading() {
+        double deltaAngle = getZAngle() - getLastAngle();
+
+        if (deltaAngle < -180) {
+            deltaAngle += 360;
+        } else if (deltaAngle > 180) {
+            deltaAngle -= 360;
+        }
+
+        globalHeading += deltaAngle;
+        lastHeading = getZAngle();
+        return globalHeading;
+    }
 
     @Override
     public void runOpMode(){}
