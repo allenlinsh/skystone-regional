@@ -45,7 +45,7 @@ public class Hook {
     /**
      * Initialize hook servos
      */
-    public void initialize() {
+    public void init() {
         unlock();
     }
 }

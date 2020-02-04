@@ -53,7 +53,7 @@ public class Intake {
     /**
      * Initialize intake motors
      */
-    public void initialize() {
+    public void init() {
         for (int i = 0; i < 2; i++) {
             motors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
             motors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);

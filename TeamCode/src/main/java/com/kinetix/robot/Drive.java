@@ -126,7 +126,7 @@ public class Drive {
     /**
      * Initialize drive motors
      */
-    public void initialize() {
+    public void init() {
         motors[0].setDirection(DcMotorSimple.Direction.FORWARD);
         motors[1].setDirection(DcMotorSimple.Direction.REVERSE);
         motors[2].setDirection(DcMotorSimple.Direction.FORWARD);

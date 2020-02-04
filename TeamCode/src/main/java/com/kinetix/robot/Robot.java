@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class Robot {
+public class Robot extends LinearOpMode{
     /**
      * Declare robot variables
      * imu: imu
@@ -39,9 +39,6 @@ public class Robot {
     public Servo arm;
     public Servo hl, hr;
 
-    private LinearOpMode opmode;
-    private HardwareMap map;
-
     /**
      * Constructor for robot hardware
      */
@@ -49,23 +46,28 @@ public class Robot {
         /*
          * Get the hardware map for each hardware
          */
-        this.imu = map.get(BNO055IMU.class, "imu");
-        this.lb = map.get(DcMotor.class, "left back");
-        this.rb = map.get(DcMotor.class, "right back");
-        this.lf = map.get(DcMotor.class, "left front");
-        this.rf = map.get(DcMotor.class, "right front");
-        this.il = map.get(DcMotor.class, "intake left");
-        this.ir = map.get(DcMotor.class, "intake right");
-        this.lift = map.get(DcMotor.class, "lift");
-        this.cap = map.get(DcMotor.class, "capstone");
-        this.grip = map.get(Servo.class, "grip");
-        //this.tilt = map.get(Servo.class, "tilt");
-        this.tl = map.get(Servo.class, "top left");
-        this.bl = map.get(Servo.class, "bottom left");
-        this.tr = map.get(Servo.class, "top right");
-        this.br = map.get(Servo.class, "bottom right");
-        this.arm = map.get(Servo.class, "arm");
-        this.hl = map.get(Servo.class, "hook left");
-        this.hr = map.get(Servo.class, "hook right");
+        this.imu = hardwareMap.get(BNO055IMU.class, "imu");
+        this.lb = hardwareMap.get(DcMotor.class, "left back");
+        this.rb = hardwareMap.get(DcMotor.class, "right back");
+        this.lf = hardwareMap.get(DcMotor.class, "left front");
+        this.rf = hardwareMap.get(DcMotor.class, "right front");
+        this.il = hardwareMap.get(DcMotor.class, "intake left");
+        this.ir = hardwareMap.get(DcMotor.class, "intake right");
+        this.lift = hardwareMap.get(DcMotor.class, "lift");
+        this.cap = hardwareMap.get(DcMotor.class, "capstone");
+        this.arm = hardwareMap.get(Servo.class, "arm");
+        this.grip = hardwareMap.get(Servo.class, "grip");
+        //this.tilt = hardwareMap.get(Servo.class, "tilt");
+        this.tl = hardwareMap.get(Servo.class, "top left");
+        this.bl = hardwareMap.get(Servo.class, "bottom left");
+        this.tr = hardwareMap.get(Servo.class, "top right");
+        this.br = hardwareMap.get(Servo.class, "bottom right");
+        this.hl = hardwareMap.get(Servo.class, "hook left");
+        this.hr = hardwareMap.get(Servo.class, "hook right");
+    }
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
     }
 }

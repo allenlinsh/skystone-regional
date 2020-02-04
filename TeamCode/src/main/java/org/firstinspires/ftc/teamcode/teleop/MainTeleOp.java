@@ -36,9 +36,9 @@ public class MainTeleOp extends LinearOpMode {
         /**
          * Initialize
          */
-        drive.initialize();
-        intake.initialize();
-        hook.initialize();
+        drive.init();
+        intake.init();
+        hook.init();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         waitForStart();

@@ -9,7 +9,7 @@ public class MathUtils {
      * @param roundTo number of digits to be rounded to
      * @return decimal number rounded to the desired digits
      */
-    public static double round(double value, double roundTo) {
+    public static double round(double value, int roundTo) {
         return Double.valueOf(String.format("%." + roundTo + "f", value));
     }
 
