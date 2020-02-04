@@ -2,11 +2,12 @@ package com.kinetix.robot;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class Robot extends LinearOpMode{
+public class Robot {
     /**
      * Declare robot variables
      * imu: imu
@@ -34,15 +35,15 @@ public class Robot extends LinearOpMode{
     public DcMotor il, ir;
     public DcMotor lift;
     public DcMotor cap;
+    public CRServo arm;
     public Servo grip, tilt;
     public Servo tl, bl, tr, br;
-    public Servo arm;
     public Servo hl, hr;
 
     /**
      * Constructor for robot hardware
      */
-    public Robot() {
+    public Robot(HardwareMap hardwareMap) {
         /*
          * Get the hardware map for each hardware
          */
@@ -55,7 +56,7 @@ public class Robot extends LinearOpMode{
         this.ir = hardwareMap.get(DcMotor.class, "intake right");
         this.lift = hardwareMap.get(DcMotor.class, "lift");
         this.cap = hardwareMap.get(DcMotor.class, "capstone");
-        this.arm = hardwareMap.get(Servo.class, "arm");
+        this.arm = hardwareMap.get(CRServo.class, "arm");
         this.grip = hardwareMap.get(Servo.class, "grip");
         //this.tilt = hardwareMap.get(Servo.class, "tilt");
         this.tl = hardwareMap.get(Servo.class, "top left");
@@ -64,10 +65,5 @@ public class Robot extends LinearOpMode{
         this.br = hardwareMap.get(Servo.class, "bottom right");
         this.hl = hardwareMap.get(Servo.class, "hook left");
         this.hr = hardwareMap.get(Servo.class, "hook right");
-    }
-
-    @Override
-    public void runOpMode() throws InterruptedException {
-
     }
 }

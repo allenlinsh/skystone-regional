@@ -1,12 +1,13 @@
 package com.kinetix.robot;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class Hook {
+public class Hook extends LinearOpMode {
     /*
      * Declare hook variables
      */
-    private Robot robot = new Robot();
+    private Robot robot = new Robot(hardwareMap);
     private Servo servos[] = new Servo[2];
     private int duration = 300; // time to complete servo movement (in milliseconds)
 
@@ -45,7 +46,12 @@ public class Hook {
     /**
      * Initialize hook servos
      */
-    public void init() {
+    public void initialize() {
         unlock();
+    }
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
     }
 }

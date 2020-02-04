@@ -1,12 +1,13 @@
 package com.kinetix.robot;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class Intake {
+public class Intake extends LinearOpMode {
     /**
      * Declare intake variables
      */
-    private Robot robot = new Robot();
+    private Robot robot = new Robot(hardwareMap);
     public DcMotor motors[] = new DcMotor[2];
 
     /**
@@ -53,11 +54,16 @@ public class Intake {
     /**
      * Initialize intake motors
      */
-    public void init() {
+    public void initialize() {
         for (int i = 0; i < 2; i++) {
             motors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
             motors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             motors[i].setPower(0);
         }
+    }
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
     }
 }

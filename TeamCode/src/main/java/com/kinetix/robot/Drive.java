@@ -1,14 +1,15 @@
 package com.kinetix.robot;
 
 import com.kinetix.util.MathUtils;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-public class Drive {
+public class Drive extends LinearOpMode {
     /**
      * Declare drive variables
      */
-    private Robot robot = new Robot();
+    private Robot robot = new Robot(hardwareMap);
     private Imu imu = new Imu();
     private final double MM_PER_INCH = 25.4;
     private final double WHEEL_DIAMETER = MathUtils.round(100/MM_PER_INCH, 2); // specific for GoBilda Mecanum wheels
@@ -126,7 +127,7 @@ public class Drive {
     /**
      * Initialize drive motors
      */
-    public void init() {
+    public void initialize() {
         motors[0].setDirection(DcMotorSimple.Direction.FORWARD);
         motors[1].setDirection(DcMotorSimple.Direction.REVERSE);
         motors[2].setDirection(DcMotorSimple.Direction.FORWARD);
@@ -137,5 +138,10 @@ public class Drive {
             motors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             motors[i].setPower(0);
         }
+    }
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
     }
 }

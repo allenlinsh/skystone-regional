@@ -12,7 +12,6 @@ public class MainAutonomous extends LinearOpMode {
      * Declare auton variables
      */
 
-
     @Override
     public void runOpMode() throws InterruptedException {
         Drive drive = new Drive();

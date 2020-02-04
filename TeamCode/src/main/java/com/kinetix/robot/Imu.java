@@ -1,14 +1,15 @@
 package com.kinetix.robot;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-public class Imu {
+public class Imu extends LinearOpMode {
     /**
      * Declare imu variables
      */
-    private Robot robot = new Robot();
+    private Robot robot = new Robot(hardwareMap);
     private BNO055IMU imu;
     private double globalHeading;
     private double lastHeading;
@@ -85,5 +86,10 @@ public class Imu {
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         imu.initialize(parameters);
+    }
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
     }
 }
