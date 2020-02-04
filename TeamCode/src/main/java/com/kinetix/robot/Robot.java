@@ -1,12 +1,14 @@
 package com.kinetix.robot;
 
+import com.kinetix.util.MathUtils;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class Robot {
+public class Robot extends LinearOpMode{
     /**
      * Declare robot variables
      * imu: imu
@@ -39,33 +41,261 @@ public class Robot {
     public Servo arm;
     public Servo hl, hr;
 
-    private LinearOpMode opmode;
-    private HardwareMap map;
+    /**
+     * Declare drive variables
+     */
+    private final double MM_PER_INCH = 25.4;
+    private final double WHEEL_DIAMETER = MathUtils.round(100/MM_PER_INCH, 2); // specific for GoBilda Mecanum wheels
+    private final double TICKS_PER_REV = 723.24; // specific for GoBilda 26:1 motors
+    private final double IN_PER_REV = Math.PI * WHEEL_DIAMETER / TICKS_PER_REV; // ticks = inches / IN_PER_REV;
+    private final double IN_PER_BLOCK = 23.625;
+    public DcMotor driveMotors[] = new DcMotor[4];
 
     /**
-     * Constructor for robot hardware
+     * Declare intake variables
      */
-    public Robot() {
-        /*
-         * Get the hardware map for each hardware
-         */
-        this.imu = map.get(BNO055IMU.class, "imu");
-        this.lb = map.get(DcMotor.class, "left back");
-        this.rb = map.get(DcMotor.class, "right back");
-        this.lf = map.get(DcMotor.class, "left front");
-        this.rf = map.get(DcMotor.class, "right front");
-        this.il = map.get(DcMotor.class, "intake left");
-        this.ir = map.get(DcMotor.class, "intake right");
-        this.lift = map.get(DcMotor.class, "lift");
-        this.cap = map.get(DcMotor.class, "capstone");
-        this.grip = map.get(Servo.class, "grip");
-        //this.tilt = map.get(Servo.class, "tilt");
-        this.tl = map.get(Servo.class, "top left");
-        this.bl = map.get(Servo.class, "bottom left");
-        this.tr = map.get(Servo.class, "top right");
-        this.br = map.get(Servo.class, "bottom right");
-        this.arm = map.get(Servo.class, "arm");
-        this.hl = map.get(Servo.class, "hook left");
-        this.hr = map.get(Servo.class, "hook right");
+    public DcMotor intakeMotors[] = new DcMotor[2];
+
+    /**
+     * Declare hook variables
+     */
+    private Servo hookServos[] = new Servo[2];
+    private int duration = 300; // time to complete servo movement (in milliseconds)
+
+    ////////////////////////////////////////   robot    ////////////////////////////////////////
+
+    /*
+     * Get the hardware map for each hardware
+     */
+    public void initHardwareMap() {
+
+        imu = (BNO055IMU)hardwareMap.get("imu");
+        lb = (DcMotor)hardwareMap.get("left back");
+        rb = (DcMotor)hardwareMap.get("right back");
+        lf = (DcMotor)hardwareMap.get("left front");
+        rf = (DcMotor)hardwareMap.get("right front");
+        il = (DcMotor)hardwareMap.get("intake left");
+        ir = (DcMotor)hardwareMap.get("intake right");
+        lift = (DcMotor)hardwareMap.get("lift");
+        cap = (DcMotor)hardwareMap.get("capstone");
+        arm = (Servo)hardwareMap.get("arm");
+        grip = hardwareMap.get(Servo.class, "grip");
+        //tilt = hardwareMap.get(Servo.class, "tilt");
+        tl = (Servo)hardwareMap.get("top left");
+        bl = (Servo)hardwareMap.get("bottom left");
+        tr = (Servo)hardwareMap.get("top right");
+        br = (Servo)hardwareMap.get("bottom right");
+        hl = (Servo)hardwareMap.get("hook left");
+        hr = (Servo)hardwareMap.get("hook right");
     }
+
+    /**
+     * Initialize drive motors
+     */
+    public void initDrive() {
+        driveMotors[0] = lb;
+        driveMotors[1] = rb;
+        driveMotors[2] = lf;
+        driveMotors[3] = rf;
+
+        driveMotors[0].setDirection(DcMotorSimple.Direction.FORWARD);
+        driveMotors[1].setDirection(DcMotorSimple.Direction.REVERSE);
+        driveMotors[2].setDirection(DcMotorSimple.Direction.FORWARD);
+        driveMotors[3].setDirection(DcMotorSimple.Direction.REVERSE);
+
+        for (int i = 0; i < 4; i++) {
+            driveMotors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            driveMotors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            driveMotors[i].setPower(0);
+        }
+    }
+
+    /**
+     * Initialize intake motors
+     */
+    public void initIntake() {
+        intakeMotors[0] = il;
+        intakeMotors[1] = ir;
+
+        for (int i = 0; i < 2; i++) {
+            intakeMotors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+            intakeMotors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            intakeMotors[i].setPower(0);
+        }
+    }
+
+    /**
+     * Initialize hook servos
+     */
+    public void initHook() {
+        unlock();
+    }
+
+    ////////////////////////////////////   drive subsystem   ////////////////////////////////////
+
+    /**
+     * Drive to an {x,y} position based on the global coordinates and turn to {heading} angle
+     * with motor powers set to {speed}
+     * @param x desired global x position
+     * @param y desired global y position
+     * @param heading desired heading
+     * @param speed desired speed
+     */
+    public void goToPosition(double x, double y, double heading, double speed) {
+
+    }
+
+    /**
+     * Set mode for all drive motors
+     * @param mode desired mode for all motors
+     */
+    public void setDriveModeAll(String mode) {
+        switch (mode) {
+            case "RESET":
+                for (int i = 0; i < 4; i++) {
+                    driveMotors[i].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                }
+                break;
+            case "RUN_TO_POSITION":
+                for (int i = 0; i < 4; i++) {
+                    driveMotors[i].setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                }
+                break;
+            case "RUN_WITHOUT_ENCODER":
+                for (int i = 0; i < 4; i++) {
+                    driveMotors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+                }
+                break;
+            case "RUN_USING_ENCODER":
+                for (int i = 0; i < 4; i++) {
+                    driveMotors[i].setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                }
+                break;
+        }
+    }
+
+    /**
+     * Set power for all drive motors
+     * @param p0 power for left back motor
+     * @param p1 power for right back motor
+     * @param p2 power for left front motor
+     * @param p3 power for right front motor
+     */
+    public void setDrivePowerAll(double p0, double p1, double p2, double p3) {
+        driveMotors[0].setPower(p0);
+        driveMotors[1].setPower(p1);
+        driveMotors[2].setPower(p2);
+        driveMotors[3].setPower(p3);
+    }
+
+    /**
+     * Set target position for all drive motor encoders
+     * @param t0 target position for left back motor encoder
+     * @param t1 target position for right back motor encoder
+     * @param t2 target position for left front motor encoder
+     * @param t3 target position for right front motor encoder
+     */
+    public void setDriveTargetPositionAll(int t0, int t1, int t2, int t3) {
+        driveMotors[0].setTargetPosition(t0);
+        driveMotors[1].setTargetPosition(t1);
+        driveMotors[2].setTargetPosition(t2);
+        driveMotors[3].setTargetPosition(t3);
+    }
+
+    /**
+     * Set the power for all drive motors to 0
+     */
+    public void stopDriveMotors() {
+        for (int i = 0; i < 4; i++) {
+            driveMotors[i].setPower(0);
+        }
+    }
+
+    /**
+     * Convert block units to inch units
+     * @param blocks desired block units to be converted
+     * @return inch units
+     */
+    public double blockToInch(double blocks) {
+        return blocks*IN_PER_BLOCK;
+    }
+
+    /**
+     * Convert inch units to tick units
+     * @param inches desired inch units to be converted
+     * @return tick units
+     */
+    public double inchToTick(double inches) {
+        return inches/IN_PER_REV;
+    }
+
+    ////////////////////////////////////   intake subsystem   ////////////////////////////////////
+
+    /**
+     * Set power for intake motors
+     * @param p0
+     * @param p1
+     */
+    public void setIntakePowerAll(double p0, double p1) {
+        intakeMotors[0].setPower(p0);
+        intakeMotors[1].setPower(p1);
+    }
+
+    /**
+     * Intake stones into the robot
+     */
+    public void intake() {
+        setIntakePowerAll(1, -1);
+    }
+
+    /**
+     * Eject stones out of the robot
+     */
+    public void eject() {
+        setIntakePowerAll(-1, 1);
+    }
+
+    /**
+     * Stop all intake motors
+     */
+    public void stopIntakeMotors() {
+        for (int i = 0; i < 2; i++) {
+            intakeMotors[i].setPower(0);
+        }
+    }
+
+    /////////////////////////////////////   lift subsystem   /////////////////////////////////////
+
+    /////////////////////////////////////   arm subsystem   /////////////////////////////////////
+
+    /////////////////////////////////////   hook subsystem   /////////////////////////////////////
+
+    /**
+     * Set position for all servos
+     * @param p0 position for left hook
+     * @param p1 position for right hook
+     */
+    public void setHookPositionAll(double p0, double p1) {
+        hookServos[0].setPosition(p0);
+        hookServos[1].setPosition(p1);
+    }
+
+    /**
+     * Set position to lock the foundation
+     */
+    public void lock() {
+        setHookPositionAll(1, 0);
+    }
+
+    /**
+     * Set position to unlock the foundation
+     */
+    public void unlock() {
+        setHookPositionAll(0, 1);
+    }
+
+    ///////////////////////////////////   capstone subsystem   ///////////////////////////////////
+
+    @Override
+    public void runOpMode(){}
 }

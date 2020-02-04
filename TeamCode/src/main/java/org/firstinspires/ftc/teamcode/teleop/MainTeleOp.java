@@ -1,15 +1,14 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
-import com.kinetix.robot.Drive;
-import com.kinetix.robot.Hook;
-import com.kinetix.robot.Intake;
+import com.kinetix.robot.Robot;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp
-public class MainTeleOp extends LinearOpMode {
+public class MainTeleOp extends Robot {
     /**
      * Declare teleop variables
      */
@@ -29,16 +28,15 @@ public class MainTeleOp extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        Drive drive = new Drive();
-        Intake intake = new Intake();
-        Hook hook = new Hook();
+        Robot robot = new Robot();
 
         /**
          * Initialize
          */
-        drive.initialize();
-        intake.initialize();
-        hook.initialize();
+        initHardwareMap();
+        initDrive();
+        initIntake();
+        initHook();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         waitForStart();
@@ -80,7 +78,7 @@ public class MainTeleOp extends LinearOpMode {
 
             for(int i = 0; i < 4; i++) {
                 drivePower[i] = Math.signum(drivePower[i]) * Math.pow(drivePower[i], 2); // square the output for fine movement control
-                drive.motors[i].setPower(Range.clip(drivePower[i], -maxDrivePower, maxDrivePower));
+                robot.driveMotors[i].setPower(Range.clip(drivePower[i], -maxDrivePower, maxDrivePower));
             }
 
             /////////////////////////////////   intake subsystem   /////////////////////////////////
@@ -88,7 +86,7 @@ public class MainTeleOp extends LinearOpMode {
             intakePower[1] = -(in + out); // power for right intake motor
 
             for(int i = 0; i < 2; i++) {
-                intake.motors[i].setPower(Range.clip(intakePower[i], -maxIntakePower, maxIntakePower));
+                robot.intakeMotors[i].setPower(Range.clip(intakePower[i], -maxIntakePower, maxIntakePower));
             }
 
             //////////////////////////////////   lift subsystem   //////////////////////////////////
@@ -105,7 +103,7 @@ public class MainTeleOp extends LinearOpMode {
         /**
          * Stop
          */
-        drive.stopMotors();
-        intake.stopMotors();
+        robot.stopDriveMotors();
+        robot.stopIntakeMotors();
     }
 }
