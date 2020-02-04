@@ -70,7 +70,7 @@ public class PIDController {
     public double calculate(double feedback) {
         double error = feedback - setPoint;
         double now, dt;
-        double integrand, derivative;
+        double integrand = 0, derivative;
         double output;
 
         p = error * kP;
@@ -85,7 +85,7 @@ public class PIDController {
         dt = now - lastTimeStamp;
         lastTimeStamp = now;
 
-        integrand = dt * error;
+        integrand += dt * error;
         i = Range.clip(integrand * kI, -MAX_I, MAX_I);
 
         derivative = (error - lastError / dt);
