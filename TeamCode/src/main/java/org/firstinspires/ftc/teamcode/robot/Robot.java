@@ -1,11 +1,10 @@
-package com.kinetix.robot;
+package org.firstinspires.ftc.teamcode.robot;
 
-import com.kinetix.util.MathUtils;
+import org.firstinspires.ftc.teamcode.util.MathUtils;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class Robot extends LinearOpMode{
@@ -31,15 +30,15 @@ public class Robot extends LinearOpMode{
      * hl: hook left
      * hr: hook right
      */
-    public BNO055IMU imu;
-    public DcMotor lb, rb, lf, rf;
-    public DcMotor il, ir;
-    public DcMotor lift;
-    public DcMotor cap;
-    public Servo grip, tilt;
-    public Servo tl, bl, tr, br;
-    public Servo arm;
-    public Servo hl, hr;
+    private BNO055IMU imu;
+    private DcMotor lb, rb, lf, rf;
+    private DcMotor il, ir;
+    private DcMotor lift;
+    private DcMotor cap;
+    private Servo grip, tilt;
+    private Servo tl, bl, tr, br;
+    private Servo arm;
+    private Servo hl, hr;
 
     /**
      * Declare drive variables
@@ -47,26 +46,42 @@ public class Robot extends LinearOpMode{
     private final double MM_PER_INCH = 25.4;
     private final double WHEEL_DIAMETER = MathUtils.round(100/MM_PER_INCH, 2); // specific for GoBilda Mecanum wheels
     private final double TICKS_PER_REV = 723.24; // specific for GoBilda 26:1 motors
-    private final double IN_PER_REV = Math.PI * WHEEL_DIAMETER / TICKS_PER_REV; // ticks = inches / IN_PER_REV;
+    private final double IN_PER_TICK = Math.PI * WHEEL_DIAMETER / TICKS_PER_REV; // ticks = inches / IN_PER_TICK;
     private final double IN_PER_BLOCK = 23.625;
-    public DcMotor driveMotors[] = new DcMotor[4];
+    private DcMotor driveMotors[] = new DcMotor[4];
 
     /**
      * Declare intake variables
      */
-    public DcMotor intakeMotors[] = new DcMotor[2];
+    private DcMotor intakeMotors[] = new DcMotor[2];
 
     /**
      * Declare hook variables
      */
     private Servo hookServos[] = new Servo[2];
-    private int duration = 300; // time to complete servo movement (in milliseconds)
+    private int servoPause = 300; // time to complete servo movement (in milliseconds)
 
     /**
      * Declare imu variables
      */
     private double globalHeading;
     private double lastHeading;
+
+    /**
+     * Declare odometry variables
+     */
+    private double wheelDistanceApart = 10; // specific for our odometry setup
+    private double globalX = 0;
+    private double globalY = 0;
+    private double theta = 0;
+    private DcMotor encoders[] = new DcMotor[3];
+
+    private int leftEncoderPos = 0;
+    private int centerEncoderPos = 0;
+    private int rightEncoderPos = 0;
+    private double deltaLeft = 0;
+    private double deltaRight = 0;
+    private double deltaCenter = 0;
 
     ////////////////////////////////////////   robot    ////////////////////////////////////////
 
@@ -93,6 +108,31 @@ public class Robot extends LinearOpMode{
         br = (Servo)hardwareMap.get("bottom right");
         hl = (Servo)hardwareMap.get("hook left");
         hr = (Servo)hardwareMap.get("hook right");
+    }
+
+    /**
+     * Initialize each hardware subsystem
+     */
+    public void initSubsystem() {
+        initDrive();
+        initIntake();
+        initHook();
+    }
+
+    /**
+     * Initialize each hardware subsystem and the IMU
+     */
+    public void initSubsystemIMU() {
+        initSubsystem();
+        initIMU();
+    }
+
+    /**
+     * Initialize each hardware subsystem and the odometry
+     */
+    public void initSubsystemOdometry() {
+        initSubsystem();
+        initOdometry();
     }
 
     /**
@@ -134,19 +174,41 @@ public class Robot extends LinearOpMode{
      * Initialize hook servos
      */
     public void initHook() {
+        hookServos[0] = hl;
+        hookServos[1] = hr;
+
         unlock();
     }
 
     /**
      * Initializes imu parameters
      */
-    public void initImu() {
+    public void initIMU() {
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         imu.initialize(parameters);
     }
 
+    /**
+     * Initializes odometry encoders
+     * Left encoder uses motor port 0
+     * Right encoder uses motor port 1
+     * Center encoder uses motor port 2
+     */
+    public void initOdometry() {
+        encoders[0] = lb;
+        encoders[1] = rb;
+        encoders[2] = lf;
+    }
+
     ////////////////////////////////////   drive subsystem   ////////////////////////////////////
+
+    public void updatePosition() {
+        deltaLeft = getLeftTicks() * IN_PER_TICK;
+        deltaRight = getRightTicks() * IN_PER_TICK;
+        deltaCenter = getCenterTicks() * IN_PER_TICK;
+
+    }
 
     /**
      * Drive to an {x,y} position based on the global coordinates and turn to {heading} angle
@@ -241,7 +303,67 @@ public class Robot extends LinearOpMode{
      * @return tick units
      */
     public double inchToTick(double inches) {
-        return inches/IN_PER_REV;
+        return inches/IN_PER_TICK;
+    }
+
+    /**
+     * Get the drivemotor object
+     * @param index index of the desired motor
+     * @return drive motor object
+     */
+    public DcMotor getDriveMotor(int index) {
+        return driveMotors[index];
+    }
+
+    /**
+     * Reset ticks for all odometry encoder
+     */
+    public void resetAllTicks() {
+        resetLeftTicks();
+        resetCenterTicks();
+        resetRightTicks();
+    }
+
+    /**
+     * Reset ticks for left odometry encoder
+     */
+    public void resetLeftTicks() {
+        leftEncoderPos = encoders[0].getCurrentPosition();
+    }
+
+    /**
+     * Get ticks for left odometry encoder
+     */
+    public int getLeftTicks() {
+        return encoders[0].getCurrentPosition() - leftEncoderPos;
+    }
+
+    /**
+     * Reset ticks for right odometry encoder
+     */
+    public void resetRightTicks() {
+        rightEncoderPos = encoders[1].getCurrentPosition();
+    }
+
+    /**
+     * Get ticks for right odometry encoder
+     */
+    public int getRightTicks() {
+        return encoders[1].getCurrentPosition() - rightEncoderPos;
+    }
+
+    /**
+     * Reset ticks for center odometry encoder
+     */
+    public void resetCenterTicks() {
+        centerEncoderPos = encoders[2].getCurrentPosition();
+    }
+
+    /**
+     * Get ticks for center odometry encoder
+     */
+    public int getCenterTicks() {
+        return encoders[2].getCurrentPosition() - centerEncoderPos;
     }
 
     ////////////////////////////////////   intake subsystem   ////////////////////////////////////
@@ -279,6 +401,15 @@ public class Robot extends LinearOpMode{
         }
     }
 
+    /**
+     * Get the intake motor object
+     * @param index index of the desired motor
+     * @return intake motor object
+     */
+    public DcMotor getIntakeMotor(int index) {
+        return intakeMotors[index];
+    }
+
     /////////////////////////////////////   lift subsystem   /////////////////////////////////////
 
     /////////////////////////////////////   arm subsystem   /////////////////////////////////////
@@ -300,6 +431,7 @@ public class Robot extends LinearOpMode{
      */
     public void lock() {
         setHookPositionAll(1, 0);
+        sleep(servoPause);
     }
 
     /**
@@ -307,6 +439,11 @@ public class Robot extends LinearOpMode{
      */
     public void unlock() {
         setHookPositionAll(0, 1);
+        sleep(servoPause);
+    }
+
+    public Servo getHookServo(int index) {
+        return hookServos[index];
     }
 
     ///////////////////////////////////   capstone subsystem   ///////////////////////////////////
@@ -318,7 +455,7 @@ public class Robot extends LinearOpMode{
      * @return angle on the x-axis
      */
     public double getXAngle() {
-        return imu.getAngularOrientation().thirdAngle;
+        return -imu.getAngularOrientation().thirdAngle;
     }
 
     /**
@@ -326,7 +463,7 @@ public class Robot extends LinearOpMode{
      * @return angle on the y-axis
      */
     public double getYAngle() {
-        return imu.getAngularOrientation().secondAngle;
+        return -imu.getAngularOrientation().secondAngle;
     }
 
     /**
@@ -334,7 +471,7 @@ public class Robot extends LinearOpMode{
      * @return angle on the z-axis
      */
     public double getZAngle() {
-        return imu.getAngularOrientation().firstAngle;
+        return -imu.getAngularOrientation().firstAngle;
     }
 
     /**

@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
-import com.kinetix.robot.Robot;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import org.firstinspires.ftc.teamcode.Robot;
+
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp

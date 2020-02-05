@@ -1,17 +1,20 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
-import com.kinetix.robot.Robot;
+import org.firstinspires.ftc.teamcode.robot.Robot;
+import org.firstinspires.ftc.teamcode.util.MathUtils;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp
-public class MainTeleOp extends Robot {
+public class MainTeleOp extends LinearOpMode {
     /**
      * Declare teleop variables
      */
+    private Robot robot = new Robot();
+
     private Gamepad driver = gamepad1;
     private Gamepad builder = gamepad2;
     private boolean isDriverStartPressed, isBuilderStartPressed;
@@ -26,23 +29,21 @@ public class MainTeleOp extends Robot {
     private double maxIntakePower = 1.0;
     private double in, out;
 
+    private boolean hookOn = false;
+
     @Override
     public void runOpMode() {
-        Robot robot = new Robot();
-
         /**
-         * Initialize
+         * Init
          */
-        initHardwareMap();
-        initDrive();
-        initIntake();
-        initHook();
+        robot.initHardwareMap();
+        robot.initSubsystem();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         waitForStart();
 
         /**
-         * Run once
+         * Init Loop
          */
 
 
@@ -52,6 +53,7 @@ public class MainTeleOp extends Robot {
         while(opModeIsActive()) {
             ////////////////////////////////////   gamepad 1   ////////////////////////////////////
             isDriverStartPressed = driver.start ? true : false;
+
             if (driver.left_stick_x + driver.left_stick_y == 0) {
                 x = slowDrivePower * (driver.dpad_left ? 1 : driver.dpad_right ? -1 : 0);
                 y = slowDrivePower * (driver.dpad_up ? 1 : driver.dpad_down ? -1 : 0);
@@ -59,13 +61,21 @@ public class MainTeleOp extends Robot {
                 x = -driver.left_stick_x;
                 y = -driver.left_stick_y;
             }
+
             if (driver.right_stick_x == 0) {
                 rotation = slowDrivePower * ((!isDriverStartPressed && driver.b) ? 1 : (!isDriverStartPressed && driver.x) ? -1 : 0);
             } else {
                 rotation = driver.right_stick_x;
             }
+
             in = driver.right_trigger;
             out = -driver.left_trigger;
+
+            if (driver.right_bumper) {
+                hookOn = true;
+            } else if (driver. left_bumper) {
+                hookOn = false;
+            }
 
             ////////////////////////////////////   gamepad 2   ////////////////////////////////////
             isBuilderStartPressed = (builder.start) ? true : false;
@@ -78,7 +88,7 @@ public class MainTeleOp extends Robot {
 
             for(int i = 0; i < 4; i++) {
                 drivePower[i] = Math.signum(drivePower[i]) * Math.pow(drivePower[i], 2); // square the output for fine movement control
-                robot.driveMotors[i].setPower(Range.clip(drivePower[i], -maxDrivePower, maxDrivePower));
+                robot.getDriveMotor(i).setPower(MathUtils.clip(drivePower[i], minDrivePower, maxDrivePower));
             }
 
             /////////////////////////////////   intake subsystem   /////////////////////////////////
@@ -86,7 +96,7 @@ public class MainTeleOp extends Robot {
             intakePower[1] = -(in + out); // power for right intake motor
 
             for(int i = 0; i < 2; i++) {
-                robot.intakeMotors[i].setPower(Range.clip(intakePower[i], -maxIntakePower, maxIntakePower));
+                robot.getIntakeMotor(i).setPower(Range.clip(intakePower[i], -maxIntakePower, maxIntakePower));
             }
 
             //////////////////////////////////   lift subsystem   //////////////////////////////////
@@ -94,6 +104,11 @@ public class MainTeleOp extends Robot {
             //////////////////////////////////   arm subsystem   //////////////////////////////////
 
             //////////////////////////////////   hook subsystem   //////////////////////////////////
+            if (hookOn) {
+                robot.lock();
+            } else {
+                robot.unlock();
+            }
 
             ////////////////////////////////   capstone subsystem   ////////////////////////////////
 
