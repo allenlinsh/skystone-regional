@@ -1,4 +1,4 @@
-#Tue Feb 04 02:37:52 PST 2020
+#Wed Feb 05 08:06:40 PST 2020
 base.0=/home/allenlinsh/Team_17557_Kinetix_Skystone/TeamCode/build/intermediates/dex/debug/mergeDexDebug/out
 path.0=classes.dex
 renamed.0=classes.dex

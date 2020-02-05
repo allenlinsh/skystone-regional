@@ -1,11 +1,11 @@
 package org.firstinspires.ftc.teamcode.auton;
 
+import org.firstinspires.ftc.teamcode.robot.Robot;
 import org.firstinspires.ftc.teamcode.util.PIDController;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous
-public class MainAutonomous extends LinearOpMode {
+public class MainAutonomous extends Robot {
     /**
      * Declare auton variables
      */

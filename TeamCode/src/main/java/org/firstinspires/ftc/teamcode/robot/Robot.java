@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.robot;
 import org.firstinspires.ftc.teamcode.util.MathUtils;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -37,7 +38,7 @@ public class Robot extends LinearOpMode{
     private DcMotor cap;
     private Servo grip, tilt;
     private Servo tl, bl, tr, br;
-    private Servo arm;
+    private CRServo arm;
     private Servo hl, hr;
 
     /**
@@ -99,8 +100,8 @@ public class Robot extends LinearOpMode{
         ir = (DcMotor)hardwareMap.get("intake right");
         lift = (DcMotor)hardwareMap.get("lift");
         cap = (DcMotor)hardwareMap.get("capstone");
-        arm = (Servo)hardwareMap.get("arm");
-        grip = hardwareMap.get(Servo.class, "grip");
+        arm = (CRServo)hardwareMap.get("arm");
+        grip = (Servo)hardwareMap.get("grip");
         //tilt = hardwareMap.get(Servo.class, "tilt");
         tl = (Servo)hardwareMap.get("top left");
         bl = (Servo)hardwareMap.get("bottom left");
@@ -108,7 +109,7 @@ public class Robot extends LinearOpMode{
         br = (Servo)hardwareMap.get("bottom right");
         hl = (Servo)hardwareMap.get("hook left");
         hr = (Servo)hardwareMap.get("hook right");
-    }
+    }` `
 
     /**
      * Initialize each hardware subsystem
