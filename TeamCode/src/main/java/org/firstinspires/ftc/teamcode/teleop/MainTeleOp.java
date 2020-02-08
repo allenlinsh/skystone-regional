@@ -15,8 +15,8 @@ public class MainTeleOp extends RobotSystem {
     // gamepad2 = builder
 
     private double[] drivePower = new double[4];
+    private double minDrivePower = 0;
     private double maxDrivePower = 1.0;
-    private double minDrivePower = 0.25;
     private double slowDrivePower = 0.25 * maxDrivePower;
     private double x, y, rotation;
 
@@ -100,16 +100,11 @@ public class MainTeleOp extends RobotSystem {
             drivePower[3] = x + y - rotation; // power for right front motor
 
             // square the output for fine movement control
-            drivePower[0] = Math.signum(drivePower[0]) * Math.pow(drivePower[0], 2);
-            drivePower[1] = Math.signum(drivePower[1]) * Math.pow(drivePower[1], 2);
-            drivePower[2] = Math.signum(drivePower[2]) * Math.pow(drivePower[2], 2);
-            drivePower[3] = Math.signum(drivePower[3]) * Math.pow(drivePower[3], 2);
-
-            // clip the output between minDrivePower and maxDrivePower
-            drivePower[0] = MathUtils.clip(drivePower[0], minDrivePower, maxDrivePower);
-            drivePower[1] = MathUtils.clip(drivePower[1], minDrivePower, maxDrivePower);
-            drivePower[2] = MathUtils.clip(drivePower[2], minDrivePower, maxDrivePower);
-            drivePower[3] = MathUtils.clip(drivePower[3], minDrivePower, maxDrivePower);
+            // and clip the output between minDrivePower and maxDrivePower
+            for (int i = 0; i < drivePower.length; i++) {
+                drivePower[i] = Math.signum(drivePower[i]) * Math.pow(drivePower[i], 2);
+                drivePower[i] = MathUtils.clip(drivePower[i], minDrivePower, maxDrivePower);
+            }
 
             setDrivePowerAll(drivePower[0], drivePower[1], drivePower[2], drivePower[3]);
 
@@ -118,8 +113,9 @@ public class MainTeleOp extends RobotSystem {
             intakePower[1] = -(in + out); // power for right intake motor
 
             // clip the output between minDrivePower and maxDrivePower
-            intakePower[0] = MathUtils.clip(intakePower[0], minIntakePower, maxIntakePower);
-            intakePower[1] = MathUtils.clip(intakePower[1], minIntakePower, maxIntakePower);
+            for (int i = 0; i < intakePower.length; i++) {
+                intakePower[i] = MathUtils.clip(intakePower[i], minIntakePower, maxIntakePower);
+            }
 
             setIntakePowerAll(intakePower[0], intakePower[1]);
 
@@ -149,6 +145,9 @@ public class MainTeleOp extends RobotSystem {
                 telemetry.addData("Right Back", drivePower[1]);
                 telemetry.addData("Left Front", drivePower[2]);
                 telemetry.addData("Right Front", drivePower[3]);
+                telemetry.addData("left_y", gamepad1.left_stick_y);
+                telemetry.addData("left_x", gamepad1.left_stick_x);
+                telemetry.addData("right_x", gamepad1.right_stick_x);
 
             } else if (mode == "INTAKE") {
                 telemetry.addData("Intake Left", intakePower[0]);

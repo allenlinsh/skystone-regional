@@ -122,7 +122,10 @@ public class RobotSystem extends LinearOpMode{
     public void initSubsystem() {
         initDrive();
         initIntake();
+        initLift();
+        initArm();
         initHook();
+        initCapstone();
     }
 
     /**
@@ -150,10 +153,10 @@ public class RobotSystem extends LinearOpMode{
         driveMotors[2] = lf;
         driveMotors[3] = rf;
 
-        driveMotors[0].setDirection(DcMotorSimple.Direction.FORWARD);
-        driveMotors[1].setDirection(DcMotorSimple.Direction.REVERSE);
-        driveMotors[2].setDirection(DcMotorSimple.Direction.FORWARD);
-        driveMotors[3].setDirection(DcMotorSimple.Direction.REVERSE);
+        driveMotors[0].setDirection(DcMotorSimple.Direction.REVERSE);
+        driveMotors[1].setDirection(DcMotorSimple.Direction.FORWARD);
+        driveMotors[2].setDirection(DcMotorSimple.Direction.REVERSE);
+        driveMotors[3].setDirection(DcMotorSimple.Direction.FORWARD);
 
         for (int i = 0; i < 4; i++) {
             driveMotors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -169,7 +172,8 @@ public class RobotSystem extends LinearOpMode{
         intakeMotors[0] = il;
         intakeMotors[1] = ir;
 
-        intakeMotors[0].setDirection(DcMotorSimple.Direction.REVERSE);
+        intakeMotors[1].setDirection(DcMotorSimple.Direction.FORWARD);
+        intakeMotors[1].setDirection(DcMotorSimple.Direction.REVERSE);
         for (int i = 0; i < 2; i++) {
             intakeMotors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
             intakeMotors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -542,11 +546,11 @@ public class RobotSystem extends LinearOpMode{
 
     ///////////////////////////////////   capstone subsystem   ///////////////////////////////////
     private void extend() {
-
+        cap.setPower(1);
     }
 
     private void collapse() {
-
+        cap.setPower(-1);
     }
 
     //////////////////////////////////////   imu subsystem   //////////////////////////////////////
