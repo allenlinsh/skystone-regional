@@ -31,9 +31,11 @@ public class MainTeleOp extends RobotSystem {
     private double armY;
     private boolean gripOn = false;
 
+    private double capZ;
+
     private boolean hookOn = false;
 
-    private String mode = "DRIVE"; // "INTAKE", "LIFT", "ARM"
+    private String mode = "DRIVER"; // OR "BUILDER" OR "BOTH"
 
     @Override
     public void runOpMode() {
@@ -59,8 +61,8 @@ public class MainTeleOp extends RobotSystem {
                 x = slowDrivePower * (gamepad1.dpad_left ? 1 : gamepad1.dpad_right ? -1 : 0);
                 y = slowDrivePower * (gamepad1.dpad_up ? 1 : gamepad1.dpad_down ? -1 : 0);
             } else {
-                x = -gamepad1.left_stick_x;
-                y = -gamepad1.left_stick_y;
+                x = Math.signum(-gamepad1.left_stick_x) * Math.pow(-gamepad1.left_stick_x, 2);
+                y = Math.signum(-gamepad1.left_stick_y) * Math.pow(-gamepad1.left_stick_y, 2);
             }
 
             if (gamepad1.right_stick_x == 0) {
@@ -86,12 +88,14 @@ public class MainTeleOp extends RobotSystem {
                 grabOn = false;
             }
 
-            armY = (!gamepad2.start && gamepad2.b) ? 1 : (!gamepad2.start && gamepad2.a) ? -1 : 0;
-            if (!gamepad2.start && gamepad2.b) {
+            armY = (!gamepad2.start && gamepad2.a) ? 1 : (!gamepad2.start && gamepad2.y) ? -1 : 0;
+            if (gamepad2.dpad_down) {
                 gripOn = true;
-            } else if (!gamepad2.start && gamepad2.a) {
+            } else if (gamepad2.dpad_up) {
                 gripOn = false;
             }
+
+            capZ = (!gamepad2.start && gamepad2.b) ? 1 : (!gamepad2.start && gamepad2.x) ? -1 : 0;
 
             /////////////////////////////////   drive subsystem   /////////////////////////////////
             drivePower[0] = x + y + rotation; // power for left back motor
@@ -102,7 +106,6 @@ public class MainTeleOp extends RobotSystem {
             // square the output for fine movement control
             // and clip the output between minDrivePower and maxDrivePower
             for (int i = 0; i < drivePower.length; i++) {
-                drivePower[i] = Math.signum(drivePower[i]) * Math.pow(drivePower[i], 2);
                 drivePower[i] = MathUtils.clip(drivePower[i], minDrivePower, maxDrivePower);
             }
 
@@ -128,7 +131,13 @@ public class MainTeleOp extends RobotSystem {
             }
 
             //////////////////////////////////   arm subsystem   //////////////////////////////////
+            setArmPower(armY);
 
+            if (gripOn) {
+                hold();
+            } else {
+                release();
+            }
 
             //////////////////////////////////   hook subsystem   //////////////////////////////////
             if (hookOn) {
@@ -138,24 +147,37 @@ public class MainTeleOp extends RobotSystem {
             }
 
             ////////////////////////////////   capstone subsystem   ////////////////////////////////
+            setCapPower(capZ);
 
             ////////////////////////////////////   telemetry   ////////////////////////////////////
-            if (mode == "DRIVE") {
+            if (mode == "DRIVER") {
                 telemetry.addData("Left Back", drivePower[0]);
                 telemetry.addData("Right Back", drivePower[1]);
                 telemetry.addData("Left Front", drivePower[2]);
                 telemetry.addData("Right Front", drivePower[3]);
-                telemetry.addData("left_y", gamepad1.left_stick_y);
-                telemetry.addData("left_x", gamepad1.left_stick_x);
-                telemetry.addData("right_x", gamepad1.right_stick_x);
-
-            } else if (mode == "INTAKE") {
+                telemetry.addLine("");
                 telemetry.addData("Intake Left", intakePower[0]);
                 telemetry.addData("Intake Right", intakePower[1]);
-            } else if (mode == "ARM") {
-
-            } else if (mode == "LIFT") {
-
+            } else if (mode == "BUILDER") {
+                telemetry.addData("Lift", liftZ);
+                telemetry.addData("Grabber", grabOn ? "On" : "Off");
+                telemetry.addLine("");
+                telemetry.addData("Arm", armY);
+                telemetry.addData("Gripper", gripOn ? "On" : "Off");
+            } else if (mode == "BOTH") {
+                telemetry.addData("Left Back", drivePower[0]);
+                telemetry.addData("Right Back", drivePower[1]);
+                telemetry.addData("Left Front", drivePower[2]);
+                telemetry.addData("Right Front", drivePower[3]);
+                telemetry.addLine("");
+                telemetry.addData("Intake Left", intakePower[0]);
+                telemetry.addData("Intake Right", intakePower[1]);
+                telemetry.addLine("");
+                telemetry.addData("Lift", liftZ);
+                telemetry.addData("Grabber", grabOn ? "On" : "Off");
+                telemetry.addLine("");
+                telemetry.addData("Arm", armY);
+                telemetry.addData("Gripper", gripOn ? "On" : "Off");
             }
             telemetry.update();
         }

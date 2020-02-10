@@ -153,10 +153,10 @@ public class RobotSystem extends LinearOpMode{
         driveMotors[2] = lf;
         driveMotors[3] = rf;
 
-        driveMotors[0].setDirection(DcMotorSimple.Direction.REVERSE);
-        driveMotors[1].setDirection(DcMotorSimple.Direction.FORWARD);
-        driveMotors[2].setDirection(DcMotorSimple.Direction.REVERSE);
-        driveMotors[3].setDirection(DcMotorSimple.Direction.FORWARD);
+        driveMotors[0].setDirection(DcMotorSimple.Direction.FORWARD);
+        driveMotors[1].setDirection(DcMotorSimple.Direction.REVERSE);
+        driveMotors[2].setDirection(DcMotorSimple.Direction.FORWARD);
+        driveMotors[3].setDirection(DcMotorSimple.Direction.REVERSE);
 
         for (int i = 0; i < 4; i++) {
             driveMotors[i].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -250,6 +250,13 @@ public class RobotSystem extends LinearOpMode{
     public void stopAllMotors() {
         stopDriveMotors();
         stopIntakeMotors();
+    }
+
+    /**
+     * Wait for the servo to complete its action
+     */
+    public void pauseServo() {
+        sleep(servoPause);
     }
 
     ////////////////////////////////////   drive subsystem   ////////////////////////////////////
@@ -387,6 +394,7 @@ public class RobotSystem extends LinearOpMode{
      */
     public int getLeftTicks() {
         return encoders[0].getCurrentPosition() - leftEncoderPos;
+        //return encoders[0].getCurrentPosition();
     }
 
     /**
@@ -401,6 +409,7 @@ public class RobotSystem extends LinearOpMode{
      */
     public int getRightTicks() {
         return encoders[1].getCurrentPosition() - rightEncoderPos;
+        //return encoders[1].getCurrentPosition();
     }
 
     /**
@@ -415,6 +424,7 @@ public class RobotSystem extends LinearOpMode{
      */
     public int getCenterTicks() {
         return encoders[2].getCurrentPosition() - centerEncoderPos;
+        //return encoders[2].getCurrentPosition();
     }
 
     ////////////////////////////////////   intake subsystem   ////////////////////////////////////
@@ -485,14 +495,14 @@ public class RobotSystem extends LinearOpMode{
     }
 
     /**
-     *  Set grab position to hold the tower
+     *  Set grab position to close and hold the tower
      */
     public void close() {
         setGrabPositionAll(0.5, 0.5, 0.5, 0.5);
     }
 
     /**
-     * Set grab position to release the tower
+     * Set grab position to open and release the tower
      */
     public void open() {
         setGrabPositionAll(0, 0, 0, 0);
@@ -507,8 +517,35 @@ public class RobotSystem extends LinearOpMode{
     }
 
     /////////////////////////////////////   arm subsystem   /////////////////////////////////////
+    /**
+     * Set power for the arm motor
+     * @param p power for the arm motor
+     */
+    public void setArmPower(double p) {
+        arm.setPower(p);
+    }
 
+    /**
+     *  Get the arm motor object
+     * @return arm motor object
+     */
+    public DcMotor getArmMotor() {
+        return arm;
+    }
 
+    /**
+     * Set the grip position to hold the stone
+     */
+    public void hold() {
+        grip.setPosition(1);
+    }
+
+    /**
+     * Set the grip position to release the stone
+     */
+    public void release() {
+        grip.setPosition(0.75);
+    }
     /////////////////////////////////////   hook subsystem   /////////////////////////////////////
 
     /**
@@ -545,11 +582,25 @@ public class RobotSystem extends LinearOpMode{
     }
 
     ///////////////////////////////////   capstone subsystem   ///////////////////////////////////
+    /**
+     * Set power for the capstone continuous servo
+     * @param p power for the capstone continuous servo
+     */
+    public void setCapPower(double p) {
+        cap.setPower(p);
+    }
+
+    /**
+     * Set power for capstone to extend the linear slides
+     */
     private void extend() {
         cap.setPower(1);
     }
 
-    private void collapse() {
+    /**
+     * Set power for capstone to retract the linear slides
+     */
+    private void retract() {
         cap.setPower(-1);
     }
 
