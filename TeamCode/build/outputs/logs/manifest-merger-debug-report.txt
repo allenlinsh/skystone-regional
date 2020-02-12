@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-MERGED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-65:12
+ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+MERGED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-65:12
 MERGED from [:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:2:1-108:12
 MERGED from [:Hardware-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\8ab9e8f9025e5129dc5bcbe0ee948390\Hardware-release\AndroidManifest.xml:2:1-11:12
 MERGED from [:FtcCommon-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\2c8f37aedfeebfc5c2c910d52f8bc0da\FtcCommon-release\AndroidManifest.xml:3:1-235:12
@@ -18,27 +18,27 @@ MERGED from [:OnBotJava-release:] C:\Users\allenlinsh\.gradle\caches\transforms-
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\b73d0db3c489aeab8b531c92b0313ef9\support-compat-28.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\b93ddaf99704c9896c23344bb8a6cc5b\versionedparcelable-28.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\912d14cf8b7da59afd70a06b1ab8df17\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
 	package
-		ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:9:5-45
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:9:5-45
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:10:5-63
+		ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:10:5-63
 application
-ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:11:5-19
-MERGED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-63:19
-MERGED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-63:19
+ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:11:5-19
+MERGED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-63:19
+MERGED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-63:19
 MERGED from [:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:78:5-106:19
 MERGED from [:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:78:5-106:19
 MERGED from [:FtcCommon-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\2c8f37aedfeebfc5c2c910d52f8bc0da\FtcCommon-release\AndroidManifest.xml:23:5-233:19
@@ -56,23 +56,23 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\allenlinsh
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\b73d0db3c489aeab8b531c92b0313ef9\support-compat-28.0.0\AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-41
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-41
 	android:largeHeap
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-33
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-33
 	android:icon
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-45
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-45
 	android:allowBackup
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-35
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-35
 	android:theme
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:9-45
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:9-45
 	android:name
 		ADDED from [:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:78:18-97
 uses-sdk
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-MERGED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
-MERGED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+MERGED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
 MERGED from [:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:7:5-9:41
 MERGED from [:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:7:5-9:41
 MERGED from [:Hardware-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\8ab9e8f9025e5129dc5bcbe0ee948390\Hardware-release\AndroidManifest.xml:7:5-9:41
@@ -97,84 +97,84 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\allenlinsh
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\b93ddaf99704c9896c23344bb8a6cc5b\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\912d14cf8b7da59afd70a06b1ab8df17\runtime-1.1.1\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\912d14cf8b7da59afd70a06b1ab8df17\runtime-1.1.1\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		ADDED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-78
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-78
 meta-data#org.firstinspires.latestSupportedControlHubVersion
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-24:33
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-24:33
 	android:value
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-30
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-30
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-78
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-78
 activity#org.firstinspires.ftc.robotcontroller.internal.PermissionValidatorWrapper
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:9-38:20
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:9-38:20
 	android:screenOrientation
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:13-49
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:13-49
 	android:label
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-45
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-45
 	android:launchMode
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-44
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-44
 	android:configChanges
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:13-59
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:13-59
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-101
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-101
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:13-37:29
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:13-37:29
 category#android.intent.category.LAUNCHER
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:17-77
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:17-77
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:27-74
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:27-74
 action#android.intent.action.MAIN
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:17-69
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:17-69
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:25-66
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:25-66
 activity#org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:39:9-57:20
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:39:9-57:20
 	android:screenOrientation
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:44:13-49
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:44:13-49
 	android:label
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:42:13-45
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:42:13-45
 	android:launchMode
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:43:13-44
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:43:13-44
 	android:configChanges
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:41:13-59
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:41:13-59
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:40:13-101
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:40:13-101
 intent-filter#action:name:android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:45:13-47:29
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:45:13-47:29
 action#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:17-90
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:17-90
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:25-87
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:25-87
 meta-data#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:49:13-51:57
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:49:13-51:57
 	android:resource
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:51:17-54
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:51:17-54
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:50:17-79
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:50:17-79
 meta-data#org.firstinspires.main.entry
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:54:13-56:40
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:54:13-56:40
 	android:value
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:56:17-37
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:56:17-37
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:55:17-60
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:55:17-60
 service#com.qualcomm.ftccommon.FtcRobotControllerService
-ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:60:9-62:38
+ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:60:9-62:38
 	android:enabled
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:62:13-35
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:62:13-35
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:61:13-76
+		ADDED from [:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:61:13-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:11:5-13:35
 MERGED from [:FtcCommon-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\2c8f37aedfeebfc5c2c910d52f8bc0da\FtcCommon-release\AndroidManifest.xml:12:5-76
@@ -670,7 +670,7 @@ ADDED from [:FtcCommon-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2
 	android:name
 		ADDED from [:FtcCommon-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\2c8f37aedfeebfc5c2c910d52f8bc0da\FtcCommon-release\AndroidManifest.xml:231:13-102
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
+IMPLIED from D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:8:1-12:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
 uses-permission#android.permission.BLUETOOTH_ADMIN
 ADDED from [:Inspection-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\3844c1eb765798006e1b6667f00aeb9f\Inspection-release\AndroidManifest.xml:12:5-74
 	android:name

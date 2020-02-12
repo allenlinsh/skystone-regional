@@ -12,13 +12,13 @@
 12
 13    <uses-sdk
 14        android:minSdkVersion="19"
-14-->C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+14-->D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 15        android:targetSdkVersion="26" />
-15-->C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
+15-->D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml
 16
 17    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-17-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
-17-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-78
+17-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
+17-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-78
 18    <uses-permission
 18-->[:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:11:5-13:35
 19        android:name="android.permission.ACCESS_WIFI_STATE"
@@ -128,91 +128,91 @@
 77-->[:Inspection-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\3844c1eb765798006e1b6667f00aeb9f\Inspection-release\AndroidManifest.xml:12:22-71
 78
 79    <application
-79-->C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:11:5-19
+79-->D:\Team_17557_Kinetix_Skystone\TeamCode\src\main\AndroidManifest.xml:11:5-19
 80        android:name="org.firstinspires.ftc.robotcore.internal.system.RobotApplication"
 80-->[:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:78:18-97
 81        android:allowBackup="true"
-81-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-35
+81-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-35
 82        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
 82-->[com.android.support:support-compat:28.0.0] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\b73d0db3c489aeab8b531c92b0313ef9\support-compat-28.0.0\AndroidManifest.xml:22:18-91
 83        android:debuggable="true"
 84        android:icon="@drawable/ic_launcher"
-84-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-45
+84-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-45
 85        android:label="@string/app_name"
-85-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-41
+85-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-41
 86        android:largeHeap="true"
-86-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-33
+86-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-33
 87        android:theme="@style/AppThemeRedRC" > <!-- Indicates to the ControlHubUpdater what the latest version of the Control Hub is that this app supports -->
-87-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:9-45
+87-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:9-45
 88        <meta-data
-88-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-24:33
+88-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-24:33
 89            android:name="org.firstinspires.latestSupportedControlHubVersion"
-89-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-78
+89-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-78
 90            android:value="1" /> <!-- The main robot controller activity -->
-90-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-30
+90-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-30
 91        <activity
-91-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:9-38:20
+91-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:9-38:20
 92            android:name="org.firstinspires.ftc.robotcontroller.internal.PermissionValidatorWrapper"
-92-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-101
+92-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-101
 93            android:configChanges="orientation|screenSize"
-93-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:13-59
+93-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:13-59
 94            android:label="@string/app_name"
-94-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-45
+94-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-45
 95            android:launchMode="singleTask"
-95-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-44
+95-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-44
 96            android:screenOrientation="fullUser" >
-96-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:13-49
+96-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:13-49
 97            <intent-filter>
-97-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:13-37:29
+97-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:13-37:29
 98                <category android:name="android.intent.category.LAUNCHER" />
-98-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:17-77
-98-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:27-74
+98-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:17-77
+98-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:27-74
 99
 100                <action android:name="android.intent.action.MAIN" />
-100-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:17-69
-100-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:25-66
+100-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:17-69
+100-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:25-66
 101            </intent-filter>
 102        </activity>
 103        <activity
-103-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:39:9-57:20
+103-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:39:9-57:20
 104            android:name="org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity"
-104-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:40:13-101
+104-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:40:13-101
 105            android:configChanges="orientation|screenSize"
-105-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:41:13-59
+105-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:41:13-59
 106            android:label="@string/app_name"
-106-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:42:13-45
+106-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:42:13-45
 107            android:launchMode="singleTask"
-107-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:43:13-44
+107-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:43:13-44
 108            android:screenOrientation="fullUser" >
-108-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:44:13-49
+108-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:44:13-49
 109            <intent-filter>
-109-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:45:13-47:29
+109-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:45:13-47:29
 110                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-110-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:17-90
-110-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:25-87
+110-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:17-90
+110-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:46:25-87
 111            </intent-filter>
 112
 113            <meta-data
-113-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:49:13-51:57
+113-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:49:13-51:57
 114                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
-114-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:50:17-79
+114-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:50:17-79
 115                android:resource="@xml/device_filter" />
-115-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:51:17-54
+115-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:51:17-54
 116
 117            <!-- org.firstinspires.main.entry indicates that this app is compatible with the Dragonboard Control Hub -->
 118            <meta-data
-118-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:54:13-56:40
+118-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:54:13-56:40
 119                android:name="org.firstinspires.main.entry"
-119-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:55:17-60
+119-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:55:17-60
 120                android:value="true" />
-120-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:56:17-37
+120-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:56:17-37
 121        </activity> <!-- The robot controller service in which most of the robot functionality is managed -->
 122        <service
-122-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:60:9-62:38
+122-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:60:9-62:38
 123            android:name="com.qualcomm.ftccommon.FtcRobotControllerService"
-123-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:61:13-76
+123-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:61:13-76
 124            android:enabled="true" /> <!-- Service that keeps desktop folders up to date with respect to actual phone file system contents -->
-124-->[:FtcRobotController] C:\Users\allenlinsh\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:62:13-35
+124-->[:FtcRobotController] D:\Team_17557_Kinetix_Skystone\FtcRobotController\build\intermediates\library_manifest\debug\AndroidManifest.xml:62:13-35
 125        <service
 125-->[:RobotCore-release:] C:\Users\allenlinsh\.gradle\caches\transforms-2\files-2.1\6e5704dd68303e4fb20822eb7eb6c94a\RobotCore-release\AndroidManifest.xml:81:9-83:38
 126            android:name="org.firstinspires.ftc.robotcore.internal.files.MediaTransferProtocolMonitorService"

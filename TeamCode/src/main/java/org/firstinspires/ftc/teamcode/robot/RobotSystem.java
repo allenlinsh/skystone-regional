@@ -228,7 +228,7 @@ public class RobotSystem extends LinearOpMode{
      */
     public void initIMU() {
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.angleUnit = BNO055IMU.AngleUnit.RADIANS;
         imu.initialize(parameters);
     }
 
@@ -269,15 +269,64 @@ public class RobotSystem extends LinearOpMode{
     }
 
     /**
-     * Drive to an {x,y} position based on the global coordinates and turn to {heading} angle
+     * Drive to an {x,y} position based on the global coordinates and turn to absolute {heading}
      * with motor powers set to {speed}
      * @param x desired global x position
      * @param y desired global y position
      * @param heading desired heading
      * @param speed desired speed
      */
-    public void goToPosition(double x, double y, double heading, double speed) {
+    public void goToPosition(double x, double y, double heading, double speed) {}
 
+    /**
+     * Drive to an {x,y} position based on the relative coordinates with motor powers set to {speed}
+     * @param x desired relative x position (+ for right, - for left)
+     * @param y desired relative y position (+ for forward, - for backward)
+     * @param turnHeading true if robot calculates heading then move towards target position
+     *                    false if robot moves Y distance then strafes X distance
+     * @param speed desired speed
+     */
+    public void moveToPosition(double x, double y, boolean turnHeading, double speed) {
+        double deltaX, deltaY, deltaHeading;
+        double p = speed;
+        double headingSign = 1;
+        double travelDistance = 0;
+        double encoderDistance = 0;
+        boolean strafing = false;
+
+        if (x == 0) {
+            deltaHeading = 0;
+            travelDistance = y;
+        } else if (y == 0) {
+            strafing = true;
+            deltaHeading = 0;
+            travelDistance = x;
+        } else {
+            if (y > 0) {
+                deltaHeading = Math.abs(Math.atan(x/y));
+                if (x > 0) {
+                    headingSign = 1;
+                } else if (x < 0){
+                    headingSign = -1;
+                }
+            } else if (y < 0) {
+                deltaHeading = Math.PI / 2.0 + Math.abs(Math.atan(y / x));
+                if (x > 0) {
+                    headingSign = 1;
+                } else if (x < 0) {
+                    headingSign = -1;
+                }
+            }
+        }
+
+        resetAllTicks();
+        setDriveModeAll("RUN_TO_POSITION");
+        setEncoderTargetPositionY();
+        setDriveModeAll("RUN_WITHOUT_ENCODER");
+
+        do {
+            setDrivePowerAll(speed, speed, speed, speed);
+        } while ();
     }
 
     /**
@@ -338,6 +387,24 @@ public class RobotSystem extends LinearOpMode{
     }
 
     /**
+     * Set target position for encoders in Y direction
+     * @param t0 target position for left encoder
+     * @param t1 target position for right encoder
+     */
+    public void setEncoderTargetPositionY(int t0, int t1) {
+        encoders[0].setTargetPosition(t0);
+        encoders[1].setTargetPosition(t1);
+    }
+
+    /**
+     * Set target position for encoder in X direction
+     * @param t2 target position for center encoder
+     */
+    public void setEncoderTargetPositionX(int t2) {
+        encoders[2].setTargetPosition(t2);
+    }
+
+    /**
      * Set the power for all drive motors to 0
      */
     public void stopDriveMotors() {
@@ -364,6 +431,8 @@ public class RobotSystem extends LinearOpMode{
         return inches/IN_PER_TICK;
     }
 
+    public void move
+
     /**
      * Get the drivemotor object
      * @param index index of the desired motor
@@ -383,48 +452,45 @@ public class RobotSystem extends LinearOpMode{
     }
 
     /**
-     * Reset ticks for left odometry encoder
+     * Reset ticks for left encoder
      */
     public void resetLeftTicks() {
         leftEncoderPos = encoders[0].getCurrentPosition();
     }
 
     /**
-     * Get ticks for left odometry encoder
+     * Get ticks for left encoder
      */
     public int getLeftTicks() {
         return encoders[0].getCurrentPosition() - leftEncoderPos;
-        //return encoders[0].getCurrentPosition();
     }
 
     /**
-     * Reset ticks for right odometry encoder
+     * Reset ticks for right encoder
      */
     public void resetRightTicks() {
         rightEncoderPos = encoders[1].getCurrentPosition();
     }
 
     /**
-     * Get ticks for right odometry encoder
+     * Get ticks for right encoder
      */
     public int getRightTicks() {
         return encoders[1].getCurrentPosition() - rightEncoderPos;
-        //return encoders[1].getCurrentPosition();
     }
 
     /**
-     * Reset ticks for center odometry encoder
+     * Reset ticks for center encoder
      */
     public void resetCenterTicks() {
         centerEncoderPos = encoders[2].getCurrentPosition();
     }
 
     /**
-     * Get ticks for center odometry encoder
+     * Get ticks for center encoder
      */
     public int getCenterTicks() {
         return encoders[2].getCurrentPosition() - centerEncoderPos;
-        //return encoders[2].getCurrentPosition();
     }
 
     ////////////////////////////////////   intake subsystem   ////////////////////////////////////
@@ -653,15 +719,19 @@ public class RobotSystem extends LinearOpMode{
     public double getHeading() {
         double deltaAngle = getZAngle() - getLastAngle();
 
-        if (deltaAngle < -180) {
-            deltaAngle += 360;
-        } else if (deltaAngle > 180) {
-            deltaAngle -= 360;
+        if (deltaAngle < degreeToRadian(-180)) {
+            deltaAngle += degreeToRadian(360);
+        } else if (deltaAngle > degreeToRadian(180)) {
+            deltaAngle -= degreeToRadian(360);
         }
 
         globalHeading += deltaAngle;
         lastHeading = getZAngle();
         return globalHeading;
+    }
+
+    public double degreeToRadian(double degree) {
+        return degree * Math.PI / 180.0;
     }
 
     @Override
