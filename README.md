@@ -1,6 +1,6 @@
 # :robot:FIRST Tech Challenge Skystone (Regional)
 
-FTC Team #17557 Kinetix Code for the Skystone Challenge (2019-2020) [Archived on Feb 14, 2020]
+FIRST Tech Challenge Skystone Team #17557 Kinetix Code(2019-2020) [Archived on Feb 14, 2020]
 
 # Team
 ## Captain
