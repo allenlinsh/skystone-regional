@@ -2,20 +2,31 @@
 
 FTC Team #17557 Kinetix Code for the Skystone Challenge (2019-2020) [Archived on Feb 14, 2020]
 
-# Team Member
+# Team
 ## Captain
 Jaivir Parmar
 
 ## Co-Captain
 Allen Lin
 
-## Mentor
-Donna Frost
+## Engineers
+Fletcher Lang\
+Irwin Cano\
+Richard Cheng
 
-## Sponsor
+## Brand Managers
+Macey Turbow\
+Sydney Vogel
+
+## Mentors
+Donna Frost\
+Aimie Marvel
+
+## Sponsors
 Santa Barbara Hackerspace
+Actobotics
+Picrow
 
-# Gallery
+# Photos
 ## Robot Design
-<img src="img/bot-prototype.jpg" width="500">\
-<img src="img/bot-regional.jpg" width="500">
+<img src="img/bot-prototype.jpg" height="300"> <img src="img/bot-regional.jpg" height="300">
