@@ -23,8 +23,8 @@ Donna Frost\
 Aimie Marvel
 
 ## Sponsors
-Santa Barbara Hackerspace
-Actobotics
+Santa Barbara Hackerspace\
+Actobotics\
 Picrow
 
 # Photos
